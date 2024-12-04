@@ -1,0 +1,334 @@
+:root {
+  --font-primary: "DM Sans", sans-serif;
+
+  --color-primary: rgb(249, 69, 110);
+
+  --color-secondary: rgb(110, 213, 249);
+
+  --surface-primary-600: rgb(4 0 21);
+  --surface-primary-500: rgb(7 0 41);
+  --surface-primary-400: rgb(10 0 61);
+  --surface-primary-300: rgb(14 0 82);
+  --surface-primary-200: rgb(17 0 102);
+  --surface-primary-100: rgb(20 0 122);
+
+  --surface-secondary-600: rgb(24 0 55);
+  --surface-secondary-500: rgb(35 0 82);
+  --surface-secondary-400: rgb(44 0 102);
+  --surface-secondary-300: rgb(53 0 122);
+  --surface-secondary-200: rgb(62 0 143);
+  --surface-secondary-100: rgb(71 0 163);
+  --surface-secondary-50: rgb(121, 56, 206);
+  --surface-secondary-50-rgb: 121 56 206;
+
+  --opacity-h: 0.87;
+  --opacity-m: 0.6;
+  --opacity-l: 0.38;
+}
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--surface-secondary-400);
+    border-radius: 5px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-secondary-400) transparent;
+  }
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/static/fonts/dm-sans/DMSans-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-primary);
+  background-color: var(--surface-primary-600);
+  color: white;
+  font-size: 100%;
+  line-height: 1.4;
+  min-height: 100dvh;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+h1 span.title-1 {
+  color: var(--color-primary);
+}
+
+h1 span.title-2 {
+  color: var(--color-secondary);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1.25em;
+  color: rgb(255 255 255 / var(--opacity-h));
+}
+
+p.with-bold span {
+  font-weight: 600;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+  padding: 6px 12px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  font-weight: 600;
+
+  & span::after {
+    content: "";
+    border: solid rgb(255 255 255 / var(--opacity-l));
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  & .up-arrow {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+}
+
+button.go-to {
+  margin: 0 auto;
+  margin-top: 10rem;
+}
+
+button.to-up {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 2rem !important;
+  flex-direction: column-reverse;
+}
+
+a {
+  cursor: pointer;
+  padding: 6px 12px;
+  height: 56px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 50px;
+  background: linear-gradient(
+    to right,
+    var(--surface-secondary-300) 20%,
+    var(--surface-secondary-50) 60%,
+    var(--surface-secondary-100) 100%
+  );
+  background-position: right 0;
+  background-size: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 20px rgba(var(--surface-secondary-50-rgb) / 50%);
+}
+
+a:hover {
+  background-position: 0%;
+  background-size: 200%;
+  box-shadow: 0 0 40px rgba(var(--surface-secondary-50-rgb) / 50%);
+}
+
+a:active {
+  background-position: 40%;
+  transition-duration: 0.04s;
+  box-shadow: 0 0 40px rgba(var(--surface-secondary-50-rgb) / 50%);
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  background: radial-gradient(transparent 0%, var(--surface-primary-600) 85%)
+      no-repeat,
+    url("/static/images/background.webp") center top no-repeat,
+    var(--surface-primary-600);
+  mask: linear-gradient(to top, transparent 0%, black 60%);
+  filter: brightness(0.8);
+  max-height: 100dvh;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  gap: 2rem;
+  min-height: 100dvh;
+  z-index: 10;
+}
+
+.container .info {
+  max-width: 768px;
+}
+
+.welcome p {
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.logo {
+  height: 10rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10rem;
+}
+
+.inner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-content.info {
+  align-items: start;
+}
+
+.content.info {
+  margin-top: 0;
+  align-items: start;
+  justify-content: center;
+
+  & p {
+    font-size: 18px;
+  }
+}
+
+.content.download {
+  margin-top: 0;
+  justify-content: center;
+}
+
+.content.download p {
+  margin-bottom: 2.5rem;
+}
+
+h1.mobile {
+  margin-top: 2.5rem;
+}
+
+.qr-container {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 300px;
+}
+
+#download-section {
+  margin: 0;
+  max-width: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--surface-primary-600) 0%,
+    var(--surface-secondary-600) 100%
+  );
+}
+
+@media screen and (max-width: 768px) {
+  button.go-to {
+    margin: 0 auto;
+    margin-top: 0rem !important;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  .content {
+    margin: 6rem 0 !important;
+    margin-top: 9rem !important;
+    justify-content: space-between !important;
+  }
+
+  .content.download {
+    width: 100%;
+    justify-content: center !important;
+  }
+
+  .inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    height: 8rem;
+  }
+
+  .welcome p {
+    font-size: 1rem;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .content.info p {
+    font-size: 1rem;
+  }
+
+  .mobile-download {
+    position: absolute;
+    top: 33%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+}
