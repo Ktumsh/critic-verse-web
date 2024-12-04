@@ -194,7 +194,7 @@ a:active {
   max-width: 1024px;
   margin: 0 auto;
   gap: 2rem;
-  min-height: 100dvh;
+  min-height: 100vh;
   z-index: 10;
 }
 
