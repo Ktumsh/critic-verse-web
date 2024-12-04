@@ -291,7 +291,7 @@ h1.mobile {
 
   .content {
     margin: 6rem 0 !important;
-    margin-top: 9rem !important;
+    margin-top: 8rem !important;
     justify-content: space-between !important;
   }
 
@@ -336,6 +336,10 @@ h1.mobile {
     left: 0;
     text-align: center;
     font-size: 2rem;
+  }
+
+  .desktop-download {
+    text-align: center;
   }
 }
 

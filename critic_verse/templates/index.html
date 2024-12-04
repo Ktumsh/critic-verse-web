@@ -10,10 +10,10 @@
     <link
       rel="icon"
       type="image/webp"
-      href="https://github.com/Ktumsh/critic-verse-web/blob/main/static/images/favicon.webp"
+      href="https://criticverse.onrender.com/static/images/favicon.webp"
     />
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
   </head>
   <body>
     <div class="background"></div>
@@ -87,7 +87,9 @@
         </a>
         {% elif is_pc %}
         <h1>¡Descarga la app!</h1>
-        <p>Escanea el código QR para descargar CriticVerse</p>
+        <p class="desktop-download">
+          Escanea el código QR para descargar CriticVerse
+        </p>
         <div class="qr-container">
           <img src="{% url 'generate_qr' %}" alt="Código QR para APK" />
         </div>
