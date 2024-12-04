@@ -14,112 +14,95 @@
     />
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <!-- javascript -->
+    <script defer src="{% static 'js/index.js' %}"></script>
   </head>
   <body>
-    <div class="background"></div>
-    <section id="welcome-section" class="container">
-      <div class="content welcome">
-        <div class="inner-content welcome">
-          <header class="header">
-            <img
-              src="{% static 'images/logo-vertical.webp' %}"
-              alt="Logo de CriticVerse"
-              class="logo"
-            />
-          </header>
-          <p>¡Tu próxima recomendación está a un toque de distancia!</p>
-          <p>
-            Descubre, valora y comparte lo mejor del cine, la televisión y los
-            videojuegos.
-          </p>
+    <main>
+      <div class="background"></div>
+      <section id="welcome-section" class="container">
+        <div class="content welcome">
+          <div class="inner-content welcome">
+            <header class="header">
+              <img
+                src="{% static 'images/logo-vertical.webp' %}"
+                alt="Logo de CriticVerse"
+                class="logo"
+              />
+            </header>
+            <p>¡Tu próxima recomendación está a un toque de distancia!</p>
+            <p>
+              Descubre, valora y comparte lo mejor del cine, la televisión y los
+              videojuegos.
+            </p>
+          </div>
+          <button id="go-to-more-info" class="go-to">
+            Más información
+            <span class="down-arrow"></span>
+          </button>
         </div>
-        <button id="go-to-more-info" class="go-to">
-          Más información
-          <span class="down-arrow"></span>
-        </button>
-      </div>
-    </section>
-    <section id="info-section" class="container">
-      <div class="content info">
-        <div class="inner-content info">
-          <h1>
-            Qué es <span class="title-1">Critic</span
-            ><span class="title-2">Verse</span>?
-          </h1>
-          <p class="with-bold">
-            Es la plataforma definitiva para los amantes del
-            <span>cine, videojuegos</span> y <span>series</span>! CriticVerse es
-            tu espacio para descubrir, calificar y compartir tus opiniones sobre
-            tus favoritos.
-          </p>
-          <p class="with-bold">
-            Si eres un apasionado de las críticas y buscas un lugar para
-            compartir tus experiencias y explorar lo que otros piensan, ¡has
-            llegado al lugar correcto! Nuestra app ofrece una experiencia
-            intuitiva y personalizada, y lo mejor de todo: ¡puedes acceder desde
-            tu dispositivo móvil! <span>Descarga la app</span> y únete a nuestra
-            comunidad.
-          </p>
+      </section>
+      <section id="info-section" class="container">
+        <div class="content info">
+          <div class="inner-content info">
+            <h1>
+              Qué es <span class="title-1">Critic</span
+              ><span class="title-2">Verse</span>?
+            </h1>
+            <p class="with-bold">
+              Es la plataforma definitiva para los amantes del
+              <span>cine, videojuegos</span> y <span>series</span>! CriticVerse
+              es tu espacio para descubrir, calificar y compartir tus opiniones
+              sobre tus favoritos.
+            </p>
+            <p class="with-bold">
+              Si eres un apasionado de las críticas y buscas un lugar para
+              compartir tus experiencias y explorar lo que otros piensan, ¡has
+              llegado al lugar correcto! Nuestra app ofrece una experiencia
+              intuitiva y personalizada, y lo mejor de todo: ¡puedes acceder
+              desde tu dispositivo móvil! <span>Descarga la app</span> y únete a
+              nuestra comunidad.
+            </p>
+          </div>
+          <button id="go-to-download" class="go-to">
+            Descarga la app
+            <span class="down-arrow"></span>
+          </button>
         </div>
-        <button id="go-to-download" class="go-to">
-          Descarga la app
-          <span class="down-arrow"></span>
-        </button>
-      </div>
-    </section>
-    <section id="download-section" class="container">
-      <div class="content download">
-        {% if is_mobile %}
-        <h1 class="mobile-download">¡Descarga la app!</h1>
-        <a href="{{ app_link }}" download>
-          Descargar APK
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M5 20h14q.425 0 .713.288T20 21t-.288.713T19 22H5q-.425 0-.712-.288T4 21t.288-.712T5 20m7-2.625q-.225 0-.437-.1t-.363-.3l-4.95-6.35q-.375-.5-.1-1.062T7.05 9H9V3q0-.425.288-.712T10 2h4q.425 0 .713.288T15 3v6h1.95q.625 0 .9.563t-.1 1.062l-4.95 6.35q-.15.2-.363.3t-.437.1"
-            />
-          </svg>
-        </a>
-        {% elif is_pc %}
-        <h1>¡Descarga la app!</h1>
-        <p class="desktop-download">
-          Escanea el código QR para descargar CriticVerse
-        </p>
-        <div class="qr-container">
-          <img src="{% url 'generate_qr' %}" alt="Código QR para APK" />
+      </section>
+      <section id="download-section" class="container">
+        <div class="content download">
+          {% if is_mobile %}
+          <h1 class="mobile-download">¡Descarga la app!</h1>
+          <a href="{{ app_link }}" download>
+            Descargar APK
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M5 20h14q.425 0 .713.288T20 21t-.288.713T19 22H5q-.425 0-.712-.288T4 21t.288-.712T5 20m7-2.625q-.225 0-.437-.1t-.363-.3l-4.95-6.35q-.375-.5-.1-1.062T7.05 9H9V3q0-.425.288-.712T10 2h4q.425 0 .713.288T15 3v6h1.95q.625 0 .9.563t-.1 1.062l-4.95 6.35q-.15.2-.363.3t-.437.1"
+              />
+            </svg>
+          </a>
+          {% elif is_pc %}
+          <h1>¡Descarga la app!</h1>
+          <p class="desktop-download">
+            Escanea el código QR para descargar CriticVerse
+          </p>
+          <div class="qr-container">
+            <img src="{% url 'generate_qr' %}" alt="Código QR para APK" />
+          </div>
+          {% endif %}
+          <button id="go-to-up" class="go-to to-up">
+            Volver arriba
+            <span class="up-arrow"></span>
+          </button>
         </div>
-        {% endif %}
-        <button id="go-to-up" class="go-to to-up">
-          Volver arriba
-          <span class="up-arrow"></span>
-        </button>
-      </div>
-    </section>
-    <script>
-      const goToInfoButton = document.getElementById("go-to-more-info");
-      const goToDownloadButton = document.getElementById("go-to-download");
-      const goToUpButton = document.getElementById("go-to-up");
-
-      const infoSection = document.getElementById("info-section");
-      const downloadSection = document.getElementById("download-section");
-      const welcomeSection = document.getElementById("welcome-section");
-
-      goToInfoButton.addEventListener("click", () => {
-        infoSection.scrollIntoView({ behavior: "smooth" });
-      });
-
-      goToDownloadButton.addEventListener("click", () => {
-        downloadSection.scrollIntoView({ behavior: "smooth" });
-      });
-
-      goToUpButton.addEventListener("click", () => {
-        welcomeSection.scrollIntoView({ behavior: "smooth" });
-      });
-    </script>
+      </section>
+    </main>
   </body>
 </html>
