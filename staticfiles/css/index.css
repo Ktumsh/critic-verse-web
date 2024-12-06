@@ -72,7 +72,7 @@ body {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   display: inline-flex;
@@ -507,6 +507,6 @@ h1.mobile {
   }
   100% {
     opacity: 1;
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(16px);
   }
 }
